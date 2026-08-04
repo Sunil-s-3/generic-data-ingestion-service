@@ -223,7 +223,27 @@ This confirms that the application can be run either locally using Python or thr
 
 ---
 
+## Live Demo
 
+The application is deployed on Render and can be accessed using the links below.
+
+### API Base URL
+
+[https://generic-data-ingestion-service-9e83.onrender.com](https://generic-data-ingestion-service-9e83.onrender.com)
+
+### Interactive Swagger UI
+
+[https://generic-data-ingestion-service-9e83.onrender.com/docs](https://generic-data-ingestion-service-9e83.onrender.com/docs)
+
+### Health Check
+
+[https://generic-data-ingestion-service-9e83.onrender.com/health](https://generic-data-ingestion-service-9e83.onrender.com/health)
+
+### OpenAPI Specification
+
+[https://generic-data-ingestion-service-9e83.onrender.com/openapi.json](https://generic-data-ingestion-service-9e83.onrender.com/openapi.json)
+
+---
 
 ## API Overview
 
