@@ -1,0 +1,18 @@
+services:
+  ingestion-api:
+    build: .
+    container_name: generic-data-ingestion-service
+    ports:
+      - "8000:8000"
+    environment:
+      APP_NAME: Generic Data Ingestion Service
+      LOG_LEVEL: INFO
+      DATABASE_URL: sqlite:///./data/ingestion.db
+      HTTP_TIMEOUT_SECONDS: "30"
+      HTTP_MAX_RETRIES: "2"
+    volumes:
+      - ingestion-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  ingestion-data:
