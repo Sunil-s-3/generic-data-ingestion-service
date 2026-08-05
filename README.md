@@ -195,6 +195,10 @@ Open:
 
 ## Quick Start (Docker)
 
+### Run with Docker
+
+If the hosted Render deployment is unavailable or sleeping due to the free tier, the project can be executed locally using Docker.
+
 ```bash
 docker compose up --build
 ```
@@ -242,6 +246,18 @@ The application is deployed on Render and can be accessed using the links below.
 ### OpenAPI Specification
 
 [https://generic-data-ingestion-service-9e83.onrender.com/openapi.json](https://generic-data-ingestion-service-9e83.onrender.com/openapi.json)
+
+---
+
+## Live Demo Note
+
+The application is deployed on **Render's Free Tier**.
+
+If the service has been idle for some time, the first request may take approximately **30–60 seconds** while the Render instance wakes up.
+
+Once active, all subsequent requests respond normally.
+
+For reviewers who prefer to run the project locally or if the hosted service is temporarily unavailable, Docker support is included and the project can be started with a single command.
 
 ---
 
