@@ -7,6 +7,7 @@
 ![HTTPX](https://img.shields.io/badge/HTTPX-Async_Client-1E88E5?style=for-the-badge)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Render](https://img.shields.io/badge/Hosted_on-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)
+![pytest](https://img.shields.io/badge/pytest-9.1-blue?style=for-the-badge&logo=pytest)
 ![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
 
 A modular FastAPI service that ingests data from **arbitrary public APIs** and stores the responses in a SQLite database — without being tailored to any specific API.
@@ -15,7 +16,7 @@ The service accepts one or more URLs, fetches responses concurrently, persists p
 
 ## Repository
 
-**GitHub Repository:** [https://github.com/Sunil-s-3/generic-data-ingestion-service](https://github.com/Sunil-s-3/generic-data-ingestion-service)
+**GitHub Repository:** [generic-data-ingestion-service](https://github.com/Sunil-s-3/generic-data-ingestion-service)
 
 The repository contains the complete source code, Docker configuration, tests, documentation, and deployment configuration.
 
@@ -83,7 +84,7 @@ flowchart LR
     API --> Swagger
 ```
 
-This deployment flow illustrates how client requests are handled by the FastAPI application, which concurrently fetches data from public APIs using HTTPX, stores successful responses in SQLite, and exposes interactive API documentation through Swagger UI.
+Architecture showing request flow from the client through FastAPI, concurrent HTTPX fetching, SQLite persistence, and interactive Swagger documentation.
 
 ---
 
@@ -294,23 +295,18 @@ The application is deployed on Render and can be accessed using the links below.
 
 [https://generic-data-ingestion-service-9e83.onrender.com/openapi.json](https://generic-data-ingestion-service-9e83.onrender.com/openapi.json)
 
+> **Live Demo Note**
+>
+> The application is deployed on Render's free tier.
+>
+> If the service has been idle, the first request may take approximately 30–60 seconds while the instance wakes up.
+> Subsequent requests respond normally.
+
 ### Automatic Deployment
 
 Every push to the `main` branch automatically triggers a new deployment on Render through GitHub integration.
 
 This provides a lightweight Continuous Deployment (CD) workflow, ensuring that the hosted application stays synchronized with the latest stable version of the repository.
-
----
-
-## Live Demo Note
-
-The application is deployed on **Render's Free Tier**.
-
-If the service has been idle for some time, the first request may take approximately **30–60 seconds** while the Render instance wakes up.
-
-Once active, all subsequent requests respond normally.
-
-For reviewers who prefer to run the project locally or if the hosted service is temporarily unavailable, Docker support is included and the project can be started with a single command.
 
 ---
 
