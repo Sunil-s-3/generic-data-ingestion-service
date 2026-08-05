@@ -1,8 +1,23 @@
 # Generic Data Ingestion Service
 
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.141-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.x-D71F00?style=for-the-badge&logo=sqlalchemy&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![HTTPX](https://img.shields.io/badge/HTTPX-Async_Client-1E88E5?style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Render](https://img.shields.io/badge/Hosted_on-Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
+
 A modular FastAPI service that ingests data from **arbitrary public APIs** and stores the responses in a SQLite database — without being tailored to any specific API.
 
 The service accepts one or more URLs, fetches responses concurrently, persists payloads in a database-agnostic JSON form, and returns a per-URL success/failure report. It is designed to remain generic: no API-specific parsers, schemas, or adapters are required.
+
+## Repository
+
+**GitHub Repository:** [https://github.com/Sunil-s-3/generic-data-ingestion-service](https://github.com/Sunil-s-3/generic-data-ingestion-service)
+
+The repository contains the complete source code, Docker configuration, tests, documentation, and deployment configuration.
 
 ---
 
@@ -38,7 +53,39 @@ Storage is intentionally generic: each successful fetch becomes an `ingested_rec
 
 ---
 
+## Deployment Architecture
 
+```mermaid
+flowchart LR
+
+    User["User / Client"]
+
+    API["FastAPI Service"]
+
+    Fetcher["HTTPX Async Fetcher"]
+
+    PublicAPI["Public APIs"]
+
+    Database["SQLite Database"]
+
+    Records["Stored Records"]
+
+    Swagger["Swagger UI (/docs)"]
+
+    User --> API
+
+    API --> Fetcher
+    Fetcher --> PublicAPI
+
+    API --> Database
+    Database --> Records
+
+    API --> Swagger
+```
+
+This deployment flow illustrates how client requests are handled by the FastAPI application, which concurrently fetches data from public APIs using HTTPX, stores successful responses in SQLite, and exposes interactive API documentation through Swagger UI.
+
+---
 
 ## Project Structure
 
@@ -246,6 +293,12 @@ The application is deployed on Render and can be accessed using the links below.
 ### OpenAPI Specification
 
 [https://generic-data-ingestion-service-9e83.onrender.com/openapi.json](https://generic-data-ingestion-service-9e83.onrender.com/openapi.json)
+
+### Automatic Deployment
+
+Every push to the `main` branch automatically triggers a new deployment on Render through GitHub integration.
+
+This provides a lightweight Continuous Deployment (CD) workflow, ensuring that the hosted application stays synchronized with the latest stable version of the repository.
 
 ---
 
